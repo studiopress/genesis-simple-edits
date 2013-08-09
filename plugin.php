@@ -1,62 +1,67 @@
 <?php
 /*
-Plugin Name: Genesis Simple Edits
-Plugin URI: http://www.studiopress.com/plugins/genesis-simple-edits
-Description: Genesis Simple Edits lets you edit the three most commonly modified areas in any Genesis theme: the post-info, the post-meta, and the footer area.
-Version: 1.0
-Author: Nathan Rice
-Author URI: http://www.nathanrice.net/
+	Plugin Name: Genesis Simple Edits
+	Plugin URI: http://www.studiopress.com/plugins/genesis-simple-edits
+	Description: Genesis Simple Edits lets you edit the three most commonly modified areas in any Genesis theme: the post-info, the post-meta, and the footer area.
+	Author: Nathan Rice
+	Author URI: http://www.nathanrice.net/
+
+	Version: 1.7.1
+
+	License: GNU General Public License v2.0 (or later)
+	License URI: http://www.opensource.org/licenses/gpl-license.php
 */
 
+/**
+ * The main class that handles the entire output, content filters, etc., for this plugin.
+ *
+ * @package Genesis Simple Edits
+ * @since 1.0
+ */
 class Genesis_Simple_Edits {
 	
-	// Constructor
+	/** Constructor */
 	function __construct() {
 		
-		register_activation_hook( __FILE__, array( &$this, 'activation_hook' ) );
+		register_activation_hook( __FILE__, array( $this, 'activation_hook' ) );
 		
 		define( 'GSE_SETTINGS_FIELD', 'gse-settings' );
 		
-		add_action( 'admin_init', array( &$this, 'javascript' ) );
-		add_action( 'admin_init', array( &$this, 'reset' ) );
-		add_action( 'admin_init', array( &$this, 'register_settings' ) );
-		add_action( 'admin_menu', array( &$this, 'add_menu' ), 15 );
-		add_action( 'admin_notices', array( &$this, 'notices' ) );
+		add_action( 'admin_init', array( $this, 'javascript' ) );
+		add_action( 'admin_init', array( $this, 'reset' ) );
+		add_action( 'admin_init', array( $this, 'register_settings' ) );
+		add_action( 'admin_menu', array( $this, 'add_menu' ), 15 );
+		add_action( 'admin_notices', array( $this, 'notices' ) );
 		
-		add_filter( 'genesis_post_info', array( &$this, 'post_info_filter' ), 20 );
-		add_filter( 'genesis_post_meta', array( &$this, 'post_meta_filter' ), 20 );
-		add_filter( 'genesis_footer_backtotop_text', array( &$this, 'footer_backtotop_filter' ), 20 );
-		add_filter( 'genesis_footer_creds_text', array( &$this, 'footer_creds_filter' ), 20 );
-		add_filter( 'genesis_footer_output', array( &$this, 'footer_output_filter' ), 20 );
+		add_filter( 'genesis_post_info', array( $this, 'post_info_filter' ), 20 );
+		add_filter( 'genesis_post_meta', array( $this, 'post_meta_filter' ), 20 );
+		add_filter( 'genesis_footer_backtotop_text', array( $this, 'footer_backtotop_filter' ), 20 );
+		add_filter( 'genesis_footer_creds_text', array( $this, 'footer_creds_filter' ), 20 );
+		add_filter( 'genesis_footer_output', array( $this, 'footer_output_filter' ), 20 );
 	
-	}
-	
-	// PHP4 Constructor
-	function Genesis_Simple_Edits() {
-		$this->__construct();
 	}
 	
 	function activation_hook() {
 		
-		$latest = '1.3';
-		
-		$theme_info = get_theme_data(TEMPLATEPATH.'/style.css');
-	
-        if( basename(TEMPLATEPATH) != 'genesis' ) {
-	        deactivate_plugins(plugin_basename(__FILE__)); // Deactivate ourself
-            wp_die('Sorry, you can\'t activate unless you have installed <a href="http://www.studiopress.com/themes/genesis">Genesis</a>');
+		$latest = '1.7.1';
+
+		$theme_info = get_theme_data( TEMPLATEPATH . '/style.css' );
+
+		if ( 'genesis' != basename( TEMPLATEPATH ) ) {
+	        deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
+			wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'apl' ), 'http://www.studiopress.com/themes/genesis' ) );
 		}
 
 		if ( version_compare( $theme_info['Version'], $latest, '<' ) ) {
-                deactivate_plugins(plugin_basename(__FILE__)); // Deactivate ourself
-                wp_die('Sorry, you can\'t activate without <a href="http://www.studiopress.com/support/showthread.php?t=19576">Genesis '.$latest.'</a> or greater');
-        }
+			deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
+			wp_die( sprintf( __( 'Sorry, you cannot activate without <a href="%s">Genesis %s</a> or greater', 'apl' ), 'http://www.studiopress.com/support/showthread.php?t=19576', $latest ) );
+		}
 		
 	}
 	
 	function javascript() {
 		
-		wp_enqueue_script( 'genesis-simple-edits-js', plugin_dir_url(__FILE__) . 'js/admin.js', array('jquery'), '', true );
+		wp_enqueue_script( 'genesis-simple-edits-js', plugin_dir_url(__FILE__) . 'js/admin.js', array( 'jquery' ), '', true );
 		
 	}
 	
@@ -67,10 +72,10 @@ class Genesis_Simple_Edits {
 	
 	function reset() {
 		
-		if ( !isset($_REQUEST['page']) || $_REQUEST['page'] != 'genesis-simple-edits' )
+		if ( ! isset( $_REQUEST['page'] ) || 'genesis-simple-edits' != $_REQUEST['page'] )
 			return;
 
-		if ( genesis_get_option('reset', GSE_SETTINGS_FIELD) ) {
+		if ( genesis_get_option( 'reset', GSE_SETTINGS_FIELD ) ) {
 			update_option( GSE_SETTINGS_FIELD, $this->settings_defaults() );
 			wp_redirect( admin_url( 'admin.php?page=genesis-simple-edits&reset=true' ) );
 			exit;
@@ -80,14 +85,14 @@ class Genesis_Simple_Edits {
 	
 	function notices() {
 		
-		if ( !isset($_REQUEST['page']) || $_REQUEST['page'] != 'genesis-simple-edits' )
+		if ( ! isset( $_REQUEST['page'] ) || 'genesis-simple-edits' != $_REQUEST['page'] )
 			return;
 
-		if ( isset( $_REQUEST['reset'] ) && $_REQUEST['reset'] == 'true' ) {
-			echo '<div id="message" class="updated"><p><strong>'.__('Simple Edits Reset', 'gse').'</strong></p></div>';
+		if ( isset( $_REQUEST['reset'] ) && 'true' == $_REQUEST['reset'] ) {
+			echo '<div id="message" class="updated"><p><strong>' . __( 'Simple Edits Reset', 'gse' ) . '</strong></p></div>';
 		}
-		elseif ( isset($_REQUEST['updated']) && $_REQUEST['updated'] == 'true') {  
-			echo '<div id="message" class="updated"><p><strong>'.__('Simple Edits Saved', 'gse').'</strong></p></div>';
+		elseif ( isset( $_REQUEST['updated'] ) && 'true' == $_REQUEST['updated'] ) {  
+			echo '<div id="message" class="updated"><p><strong>' . __( 'Simple Edits Saved', 'gse' ) . '</strong></p></div>';
 		}
 		
 	}
@@ -106,17 +111,19 @@ class Genesis_Simple_Edits {
 	}
 	
 	function add_menu() {
-		add_submenu_page('genesis', __('Simple Edits','gse'), __('Simple Edits','gse'), 'manage_options', 'genesis-simple-edits', array( &$this, 'admin_page' ) );
+		
+		add_submenu_page('genesis', __('Genesis - Simple Edits','gse'), __('Simple Edits','gse'), 'manage_options', 'genesis-simple-edits', array( &$this, 'admin_page' ) );
+	
 	}
 	
 	function admin_page() { ?>
 		
 		<div class="wrap">
 			<form method="post" action="options.php">
-			<?php settings_fields(GSE_SETTINGS_FIELD); // important! ?>
+			<?php settings_fields( GSE_SETTINGS_FIELD ); // important! ?>
 			
-			<?php screen_icon('options-general'); ?>	
-			<h2><?php _e('Genesis Simple Edits', 'gse'); ?></h2>
+			<?php screen_icon( 'options-general' ); ?>	
+			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 				
 				<table class="form-table"><tbody>
 					
@@ -140,7 +147,7 @@ class Genesis_Simple_Edits {
 					<tr class="post-shortcodes" style="display: none;">
 						<th scope="row"><p><span class="description"><?php _e('Shortcode Reference'); ?></span></p></th>
 						<td>
-							<p><span class="description"><?php _e('NOTE: For a more comprehensive shortcode usage guide, <a href="http://dev.studiopress.com/shortcode-reference" target="_blank">see this page</a>.') ?>
+							<p><span class="description"><?php _e('NOTE: For a more comprehensive shortcode usage guide, <a href="http://my.studiopress.com/docs/shortcode-reference/" target="_blank">see this page</a>.') ?>
 							<p>
 								<ul>
 									<li>[post_date] - <span class="description"><?php _e('Date the post was published', ''); ?></span></li>
@@ -187,7 +194,7 @@ class Genesis_Simple_Edits {
 					<tr class="footer-shortcodes" style="display: none;">
 						<th scope="row"><p><span class="description"><?php _e('Shortcode Reference'); ?></span></p></th>
 						<td>
-							<p><span class="description"><?php _e('NOTE: For a more comprehensive shortcode usage guide, <a href="http://dev.studiopress.com/shortcode-reference" target="_blank">see this page</a>.') ?>
+							<p><span class="description"><?php _e('NOTE: For a more comprehensive shortcode usage guide, <a href="http://my.studiopress.com/docs/shortcode-reference/" target="_blank">see this page</a>.') ?>
 							<p>
 								<ul>
 									<li>[footer_backtotop] - <span class="description"><?php _e('The "Back to Top" Link', ''); ?></span></li>
