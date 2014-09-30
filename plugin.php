@@ -6,7 +6,7 @@
 	Author: Nathan Rice
 	Author URI: http://www.nathanrice.net/
 
-	Version: 1.7.1
+	Version: 2.1.0
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -42,19 +42,10 @@ class Genesis_Simple_Edits {
 	}
 	
 	function activation_hook() {
-		
-		$latest = '1.7.1';
 
-		$theme_info = get_theme_data( TEMPLATEPATH . '/style.css' );
-
-		if ( 'genesis' != basename( TEMPLATEPATH ) ) {
-	        deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
-			wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'apl' ), 'http://www.studiopress.com/themes/genesis' ) );
-		}
-
-		if ( version_compare( $theme_info['Version'], $latest, '<' ) ) {
+		if ( ! defined( 'PARENT_THEME_VERSION' ) || ! version_compare( PARENT_THEME_VERSION, '2.1.0', '>=' ) ) {
 			deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
-			wp_die( sprintf( __( 'Sorry, you cannot activate without <a href="%s">Genesis %s</a> or greater', 'apl' ), 'http://www.studiopress.com/support/showthread.php?t=19576', $latest ) );
+			wp_die( sprintf( __( 'Sorry, you cannot activate without <a href="%s">Genesis %s</a> or greater', 'genesis-simple-edits' ), 'http://my.studiopress.com/?download_id=91046d629e74d525b3f2978e404e7ffa', '2.1.0' ) );
 		}
 		
 	}
