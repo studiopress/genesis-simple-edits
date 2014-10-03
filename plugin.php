@@ -90,14 +90,14 @@ class Genesis_Simple_Edits {
 	
 	function settings_defaults() {
 
-		$footer_html5 = '<p>[footer_copyright before="Copyright "] &middot; [footer_childtheme_link before="" after=" On"] [footer_genesis_link url="http://www.studiopress.com/" before=""] &middot; [footer_wordpress_link] &middot; [footer_loginout]</p>';
+		$footer_html5 = sprintf( '<p>[footer_copyright before="%s "] &middot; [footer_childtheme_link before="" after=" %s"] [footer_genesis_link url="http://www.studiopress.com/" before=""] &middot; [footer_wordpress_link] &middot; [footer_loginout]</p>', __( 'Copyright', 'genesis-simple-edits' ), __( 'On', 'genesis-simple-edits' ) );
 		$footer_xhtml = '<div class="gototop"><p>[footer_backtotop]</p></div><div class="creds"><p>' . __( 'Copyright', 'genesis-simple-edits' ) . ' [footer_copyright] [footer_childtheme_link] &middot; [footer_genesis_link] [footer_studiopress_link] &middot; [footer_wordpress_link] &middot; [footer_loginout]</p></div>';
 		
 		return array(
 			'post_info'             => '[post_date] ' . __( 'By', 'genesis-simple-edits' ) . ' [post_author_posts_link] [post_comments] [post_edit]',
 			'post_meta'             => '[post_categories] [post_tags]',
 			'footer_backtotop_text' => '[footer_backtotop]',
-			'footer_creds_text'     => '[footer_copyright before="Copyright "] &middot; [footer_childtheme_link before="" after=" On"] [footer_genesis_link url="http://www.studiopress.com/" before=""] &middot; [footer_wordpress_link] &middot; [footer_loginout]',
+			'footer_creds_text'     => sprintf( '[footer_copyright before="%s "] &middot; [footer_childtheme_link before="" after=" %s"] [footer_genesis_link url="http://www.studiopress.com/" before=""] &middot; [footer_wordpress_link] &middot; [footer_loginout]', __( 'Copyright', 'genesis-simple-edits' ), __( 'On', 'genesis-simple-edits' ) ),
 			'footer_output_on'      => 0,
 			'footer_output'         => genesis_html5() ? $footer_html5 : $footer_xhtml,
 		);
