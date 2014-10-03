@@ -97,7 +97,7 @@ class Genesis_Simple_Edits {
 			'post_info'             => '[post_date] ' . __( 'By', 'genesis-simple-edits' ) . ' [post_author_posts_link] [post_comments] [post_edit]',
 			'post_meta'             => '[post_categories] [post_tags]',
 			'footer_backtotop_text' => '[footer_backtotop]',
-			'footer_creds_text'     => __( 'Copyright', 'genesis-simple-edits' ) . ' [footer_copyright] [footer_childtheme_link] &middot; [footer_genesis_link] [footer_studiopress_link] &middot; [footer_wordpress_link] &middot; [footer_loginout]',
+			'footer_creds_text'     => '[footer_copyright before="Copyright "] &middot; [footer_childtheme_link before="" after=" On"] [footer_genesis_link url="http://www.studiopress.com/" before=""] &middot; [footer_wordpress_link] &middot; [footer_loginout]',
 			'footer_output_on'      => 0,
 			'footer_output'         => genesis_html5() ? $footer_html5 : $footer_xhtml,
 		);
@@ -144,7 +144,9 @@ class Genesis_Simple_Edits {
 							<p>
 								<ul>
 									<li>[post_date] - <span class="description"><?php _e( 'Date the entry was published', 'genesis-simple-edits' ); ?></span></li>
+									<li>[post_modified_date] - <span class="description"><?php _e( 'Date the entry was last modified', 'genesis-simple-edits' ); ?></span></li>
 									<li>[post_time] - <span class="description"><?php _e( 'Time the entry was published', 'genesis-simple-edits' ); ?></span></li>
+									<li>[post_modified_time] - <span class="description"><?php _e( 'Time the entry was last modified', 'genesis-simple-edits' ); ?></span></li>
 									<li>[post_author] - <span class="description"><?php _e( 'Entry author display name', 'genesis-simple-edits' ); ?></span></li>
 									<li>[post_author_link] - <span class="description"><?php _e( 'Entry author display name, linked to their website', 'genesis-simple-edits' ); ?></span></li>
 									<li>[post_author_posts_link] - <span class="description"><?php _e( 'Entry author display name, linked to their archive', 'genesis-simple-edits' ); ?></span></li>
