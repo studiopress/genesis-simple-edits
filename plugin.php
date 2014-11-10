@@ -182,7 +182,7 @@ class Genesis_Simple_Edits {
 							
 							<p><span class="description"><?php _e( 'NOTE: Checking this option will use the content of the box below, and override the options above.', 'genesis-simple-edits' ); ?></span></p>
 							
-							<p><textarea name="<?php echo GSE_SETTINGS_FIELD; ?>[footer_output]" cols="80" rows="5"><?php echo esc_textarea( genesis_get_option( 'footer_output', GSE_SETTINGS_FIELD ) ); ?></textarea></p>
+							<p><?php wp_editor( genesis_get_option( 'footer_output', GSE_SETTINGS_FIELD ), 'footer_output', array( 'textarea_name' => GSE_SETTINGS_FIELD . '[footer_output]', 'textarea_rows' => 6 ) ); ?></p>
 							
 							<p><small><a class="footer-shortcodes-toggle" href="#"><?php _e( 'Show available footer shortcodes', 'genesis-simple-edits' ); ?></a></small></p>
 						</td>
