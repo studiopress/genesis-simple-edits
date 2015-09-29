@@ -195,7 +195,7 @@ class Genesis_Simple_Edits {
 							<p>
 								<ul>
 									<?php if ( ! genesis_html5() ) : ?>
-									<li>[footer_backtotop] - <span class="description"><?php _e( 'The "Back to Top" Link', ''); ?></span></li>
+									<li>[footer_backtotop] - <span class="description"><?php _e( 'The "Back to Top" Link', 'genesis-simple-edits'); ?></span></li>
 									<?php endif; ?>
 									<li>[footer_copyright] - <span class="description"><?php _e( 'The Copyright notice', 'genesis-simple-edits' ); ?></span></li>
 									<li>[footer_childtheme_link] - <span class="description"><?php _e( 'The Child Theme Link', 'genesis-simple-edits' ); ?></span></li>

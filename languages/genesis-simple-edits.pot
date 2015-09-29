@@ -1,0 +1,208 @@
+# Copyright (C) 2015 Nathan Rice
+# This file is distributed under the GNU General Public License v2.0 (or later).
+msgid ""
+msgstr ""
+"Project-Id-Version: Genesis Simple Edits 2.1.1\n"
+"Report-Msgid-Bugs-To: StudioPress <translations@studiopress.com>\n"
+"POT-Creation-Date: 2015-09-29 19:30:54+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: StudioPress <translations@studiopress.com>\n"
+"Language-Team: English <translations@studiopress.com>\n"
+"X-Generator: grunt-wp-i18n 0.4.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes\n"
+
+#: plugin.php:48
+msgid "Sorry, you cannot activate without <a href=\"%s\">Genesis %s</a> or greater"
+msgstr ""
+
+#: plugin.php:83
+msgid "Simple Edits Reset"
+msgstr ""
+
+#: plugin.php:86
+msgid "Simple Edits Saved"
+msgstr ""
+
+#: plugin.php:93 plugin.php:94 plugin.php:100
+msgid "Copyright"
+msgstr ""
+
+#: plugin.php:93 plugin.php:100
+msgid "On"
+msgstr ""
+
+#: plugin.php:97
+msgid "By"
+msgstr ""
+
+#: plugin.php:109
+msgid "Genesis - Simple Edits"
+msgstr ""
+
+#: plugin.php:109
+msgid "Simple Edits"
+msgstr ""
+
+#: plugin.php:124
+msgid "Entry Meta (above content)"
+msgstr ""
+
+#: plugin.php:131
+msgid "Entry Meta (below content)"
+msgstr ""
+
+#: plugin.php:135
+msgid "Show available entry meta shortcodes"
+msgstr ""
+
+#: plugin.php:141 plugin.php:192
+msgid "Shortcode Reference"
+msgstr ""
+
+#: plugin.php:143 plugin.php:194
+msgid ""
+"NOTE: For a more comprehensive shortcode usage guide, <a "
+"href=\"http://my.studiopress.com/docs/shortcode-reference/\" "
+"target=\"_blank\">see this page</a>."
+msgstr ""
+
+#: plugin.php:146
+msgid "Date the entry was published"
+msgstr ""
+
+#: plugin.php:147
+msgid "Date the entry was last modified"
+msgstr ""
+
+#: plugin.php:148
+msgid "Time the entry was published"
+msgstr ""
+
+#: plugin.php:149
+msgid "Time the entry was last modified"
+msgstr ""
+
+#: plugin.php:150
+msgid "Entry author display name"
+msgstr ""
+
+#: plugin.php:151
+msgid "Entry author display name, linked to their website"
+msgstr ""
+
+#: plugin.php:152
+msgid "Entry author display name, linked to their archive"
+msgstr ""
+
+#: plugin.php:153
+msgid "Entry comments link"
+msgstr ""
+
+#: plugin.php:154
+msgid "List of entry tags"
+msgstr ""
+
+#: plugin.php:155
+msgid "List of entry categories"
+msgstr ""
+
+#: plugin.php:156
+msgid "Entry edit link (visible to admins)"
+msgstr ""
+
+#: plugin.php:164
+msgid "Footer \"Back to Top\" Link"
+msgstr ""
+
+#: plugin.php:172
+msgid "Footer Credits Text"
+msgstr ""
+
+#: plugin.php:179
+msgid "Footer Output"
+msgstr ""
+
+#: plugin.php:181
+msgid "Modify Entire Footer Text (including markup)?"
+msgstr ""
+
+#: plugin.php:183
+msgid ""
+"NOTE: Checking this option will use the content of the box below, and "
+"override the options above."
+msgstr ""
+
+#: plugin.php:187
+msgid "Show available footer shortcodes"
+msgstr ""
+
+#: plugin.php:198
+msgid "The \"Back to Top\" Link"
+msgstr ""
+
+#: plugin.php:200
+msgid "The Copyright notice"
+msgstr ""
+
+#: plugin.php:201
+msgid "The Child Theme Link"
+msgstr ""
+
+#: plugin.php:202
+msgid "The Genesis Link"
+msgstr ""
+
+#: plugin.php:203
+msgid "The StudioPress Link"
+msgstr ""
+
+#: plugin.php:204
+msgid "The WordPress Link"
+msgstr ""
+
+#: plugin.php:205
+msgid "Log In/Out Link"
+msgstr ""
+
+#: plugin.php:214
+msgid "Save Settings"
+msgstr ""
+
+#: plugin.php:215
+msgid "Reset Settings"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Genesis Simple Edits"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.studiopress.com/plugins/genesis-simple-edits"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Genesis Simple Edits lets you edit the three most commonly modified areas "
+"in any Genesis theme: the post-info, the post-meta, and the footer area."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Nathan Rice"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.nathanrice.net/"
+msgstr ""
