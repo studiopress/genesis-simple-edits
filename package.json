@@ -7,7 +7,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "grunt": "^0.4.5",
+    "grunt": "*",
     "grunt-autoprefixer": "*",
     "grunt-checktextdomain": "*",
     "grunt-contrib-cssmin": "*",
