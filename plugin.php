@@ -6,7 +6,10 @@
 	Author: Nathan Rice
 	Author URI: http://www.nathanrice.net/
 
-	Version: 2.1.2
+	Version: 2.1.3
+
+	Text Domain: genesis-simple-edits
+	Domain Path: /languages
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -19,50 +22,56 @@
  * @since 1.0
  */
 class Genesis_Simple_Edits {
-	
+
 	/** Constructor */
 	function __construct() {
-		
+
 		register_activation_hook( __FILE__, array( $this, 'activation_hook' ) );
-		
+
 		define( 'GSE_SETTINGS_FIELD', 'gse-settings' );
-		
+
+		add_action( 'plugins_loaded', 'load_textdomain' );
+
 		add_action( 'admin_init', array( $this, 'javascript' ) );
 		add_action( 'admin_init', array( $this, 'reset' ) );
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'admin_menu', array( $this, 'add_menu' ), 15 );
 		add_action( 'admin_notices', array( $this, 'notices' ) );
-		
+
 		add_filter( 'genesis_post_info', array( $this, 'post_info_filter' ), 20 );
 		add_filter( 'genesis_post_meta', array( $this, 'post_meta_filter' ), 20 );
 		add_filter( 'genesis_footer_backtotop_text', array( $this, 'footer_backtotop_filter' ), 20 );
 		add_filter( 'genesis_footer_creds_text', array( $this, 'footer_creds_filter' ), 20 );
 		add_filter( 'genesis_footer_output', array( $this, 'footer_output_filter' ), 20 );
-	
+
 	}
-	
+
 	function activation_hook() {
 
 		if ( ! defined( 'PARENT_THEME_VERSION' ) || ! version_compare( PARENT_THEME_VERSION, '2.1.0', '>=' ) ) {
 			deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
 			wp_die( sprintf( __( 'Sorry, you cannot activate without <a href="%s">Genesis %s</a> or greater', 'genesis-simple-edits' ), 'http://my.studiopress.com/?download_id=91046d629e74d525b3f2978e404e7ffa', '2.1.0' ) );
 		}
-		
+
 	}
-	
+
+	function load_textdomain() {
+		load_plugin_textdomain( 'genesis-simple-edits', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
+	}
+
 	function javascript() {
-		
+
 		wp_enqueue_script( 'genesis-simple-edits-js', plugin_dir_url(__FILE__) . 'js/admin.js', array( 'jquery' ), '2.1.0', true );
-		
+
 	}
-	
+
 	function register_settings() {
 		register_setting( GSE_SETTINGS_FIELD, GSE_SETTINGS_FIELD );
 		add_option( GSE_SETTINGS_FIELD, $this->settings_defaults() );
 	}
-	
+
 	function reset() {
-		
+
 		if ( ! isset( $_REQUEST['page'] ) || 'genesis-simple-edits' != $_REQUEST['page'] )
 			return;
 
@@ -71,28 +80,28 @@ class Genesis_Simple_Edits {
 			wp_redirect( admin_url( 'admin.php?page=genesis-simple-edits&reset=true' ) );
 			exit;
 		}
-		
+
 	}
-	
+
 	function notices() {
-		
+
 		if ( ! isset( $_REQUEST['page'] ) || 'genesis-simple-edits' != $_REQUEST['page'] )
 			return;
 
 		if ( isset( $_REQUEST['reset'] ) && 'true' == $_REQUEST['reset'] ) {
 			echo '<div id="message" class="updated"><p><strong>' . __( 'Simple Edits Reset', 'genesis-simple-edits' ) . '</strong></p></div>';
 		}
-		elseif ( isset( $_REQUEST['updated'] ) && 'true' == $_REQUEST['updated'] ) {  
+		elseif ( isset( $_REQUEST['updated'] ) && 'true' == $_REQUEST['updated'] ) {
 			echo '<div id="message" class="updated"><p><strong>' . __( 'Simple Edits Saved', 'genesis-simple-edits' ) . '</strong></p></div>';
 		}
-		
+
 	}
-	
+
 	function settings_defaults() {
 
 		$footer_html5 = sprintf( '<p>[footer_copyright before="%s "] &middot; [footer_childtheme_link before="" after=" %s"] [footer_genesis_link url="http://www.studiopress.com/" before=""] &middot; [footer_wordpress_link] &middot; [footer_loginout]</p>', __( 'Copyright', 'genesis-simple-edits' ), __( 'On', 'genesis-simple-edits' ) );
 		$footer_xhtml = '<div class="gototop"><p>[footer_backtotop]</p></div><div class="creds"><p>' . __( 'Copyright', 'genesis-simple-edits' ) . ' [footer_copyright] [footer_childtheme_link] &middot; [footer_genesis_link] [footer_studiopress_link] &middot; [footer_wordpress_link] &middot; [footer_loginout]</p></div>';
-		
+
 		return array(
 			'post_info'             => '[post_date] ' . __( 'By', 'genesis-simple-edits' ) . ' [post_author_posts_link] [post_comments] [post_edit]',
 			'post_meta'             => '[post_categories] [post_tags]',
@@ -101,42 +110,42 @@ class Genesis_Simple_Edits {
 			'footer_output_on'      => 0,
 			'footer_output'         => current_theme_supports( 'html5' ) ? $footer_html5 : $footer_xhtml,
 		);
-		
+
 	}
-	
+
 	function add_menu() {
-		
+
 		add_submenu_page( 'genesis', __( 'Genesis - Simple Edits', 'genesis-simple-edits' ), __( 'Simple Edits','genesis-simple-edits' ), 'manage_options', 'genesis-simple-edits', array( &$this, 'admin_page' ) );
-	
+
 	}
-	
+
 	function admin_page() { ?>
-	
+
 		<div class="wrap">
 			<form method="post" action="options.php">
 			<?php settings_fields( GSE_SETTINGS_FIELD ); // important! ?>
-			
+
 			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-				
+
 				<table class="form-table"><tbody>
-					
+
 					<tr>
 						<th scope="row"><p><label for="<?php echo GSE_SETTINGS_FIELD; ?>[post_info]"><b><?php _e( 'Entry Meta (above content)', 'genesis-simple-edits' ); ?></b></label></p></th>
 						<td>
 							<p><input type="text" name="<?php echo GSE_SETTINGS_FIELD; ?>[post_info]" id="<?php echo GSE_SETTINGS_FIELD; ?>[post_info]" value="<?php echo esc_attr( genesis_get_option( 'post_info', GSE_SETTINGS_FIELD ) ); ?>" size="125" /></p>
 						</td>
 					</tr>
-					
+
 					<tr>
 						<th scope="row"><p><label for="<?php echo GSE_SETTINGS_FIELD; ?>[post_meta]"><b><?php _e( 'Entry Meta (below content)', 'genesis-simple-edits' ); ?></b></label></p></th>
 						<td>
 							<p><input type="text" name="<?php echo GSE_SETTINGS_FIELD; ?>[post_meta]" id="<?php echo GSE_SETTINGS_FIELD; ?>[post_meta]" value="<?php echo esc_attr( genesis_get_option( 'post_meta', GSE_SETTINGS_FIELD ) ); ?>" size="125" /></p>
-							
+
 							<p><small><a class="post-shortcodes-toggle" href="#"><?php _e( 'Show available entry meta shortcodes', 'genesis-simple-edits' ) ?></a></small></p>
-							
+
 						</td>
 					</tr>
-					
+
 					<tr class="post-shortcodes" style="display: none;">
 						<th scope="row"><p><span class="description"><?php _e( 'Shortcode Reference', 'genesis-simple-edits' ); ?></span></p></th>
 						<td>
@@ -167,27 +176,27 @@ class Genesis_Simple_Edits {
 						</td>
 					</tr>
 					<?php endif; ?>
-					
+
 					<tr>
 						<th scope="row"><p><label for="<?php echo GSE_SETTINGS_FIELD; ?>[footer_creds_text]"><b><?php _e( 'Footer Credits Text', 'genesis-simple-edits' ); ?></b></label></p></th>
 						<td>
 							<p><input type="text" name="<?php echo GSE_SETTINGS_FIELD; ?>[footer_creds_text]" id="<?php echo GSE_SETTINGS_FIELD; ?>[footer_creds_text]" value="<?php echo esc_attr( genesis_get_option( 'footer_creds_text', GSE_SETTINGS_FIELD ) ); ?>" size="125" /></p>
 						</td>
 					</tr>
-					
+
 					<tr>
 						<th scope="row"><p><b><?php _e( 'Footer Output', 'genesis-simple-edits' ); ?></b></p></th>
 						<td>
 							<p><input type="checkbox" name="<?php echo GSE_SETTINGS_FIELD; ?>[footer_output_on]" id="<?php echo GSE_SETTINGS_FIELD; ?>[footer_output_on]" value="1" <?php checked( 1, genesis_get_option( 'footer_output_on', GSE_SETTINGS_FIELD ) ); ?> /> <label for="<?php echo GSE_SETTINGS_FIELD; ?>[footer_output_on]"><?php _e( 'Modify Entire Footer Text (including markup)?', 'genesis-simple-edits' ); ?></label></p>
-							
+
 							<p><span class="description"><?php _e( 'NOTE: Checking this option will use the content of the box below, and override the options above.', 'genesis-simple-edits' ); ?></span></p>
-							
+
 							<p><textarea name="<?php echo GSE_SETTINGS_FIELD; ?>[footer_output]" cols="80" rows="5"><?php echo esc_textarea( genesis_get_option( 'footer_output', GSE_SETTINGS_FIELD ) ); ?></textarea></p>
-							
+
 							<p><small><a class="footer-shortcodes-toggle" href="#"><?php _e( 'Show available footer shortcodes', 'genesis-simple-edits' ); ?></a></small></p>
 						</td>
 					</tr>
-					
+
 					<tr class="footer-shortcodes" style="display: none;">
 						<th scope="row"><p><span class="description"><?php _e( 'Shortcode Reference', 'genesis-simple-edits' ); ?></span></p></th>
 						<td>
@@ -207,52 +216,52 @@ class Genesis_Simple_Edits {
 							</p>
 						</td>
 					</tr>
-					
+
 				</tbody></table>
-				
+
 				<div class="bottom-buttons">
 					<input type="submit" class="button-primary" value="<?php _e( 'Save Settings', 'genesis-simple-edits' ); ?>" />
 					<input type="submit" class="button-secondary" name="<?php echo GSE_SETTINGS_FIELD; ?>[reset]" value="<?php _e( 'Reset Settings', 'genesis-simple-edits' ); ?>" />
 				</div>
-				
+
 			</form>
 		</div>
-		
+
 	<?php }
-	
+
 	function post_info_filter( $output ) {
-		
+
 		return genesis_get_option( 'post_info', GSE_SETTINGS_FIELD );
-		
+
 	}
-	
+
 	function post_meta_filter( $output ) {
-		
+
 		return genesis_get_option( 'post_meta', GSE_SETTINGS_FIELD );
-		
+
 	}
-	
+
 	function footer_backtotop_filter( $output ) {
-		
+
 		return genesis_get_option( 'footer_backtotop_text', GSE_SETTINGS_FIELD );
-		
+
 	}
-	
+
 	function footer_creds_filter( $output ) {
-		
+
 		return genesis_get_option( 'footer_creds_text', GSE_SETTINGS_FIELD );
-		
+
 	}
-	
+
 	function footer_output_filter( $output ) {
-		
+
 		if ( genesis_get_option( 'footer_output_on', GSE_SETTINGS_FIELD ) )
 			return genesis_get_option( 'footer_output', GSE_SETTINGS_FIELD );
-			
+
 		return $output;
-		
+
 	}
-	
+
 }
 
 $Genesis_Simple_Edits = new Genesis_Simple_Edits;
