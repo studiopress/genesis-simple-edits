@@ -20,11 +20,11 @@ class Genesis_Simple_Edits_Core {
 
 	public function init() {
 
-		add_filter( 'genesis_post_info', array( $this, 'post_info_filter' ), 20 );
-		add_filter( 'genesis_post_meta', array( $this, 'post_meta_filter' ), 20 );
-		add_filter( 'genesis_footer_backtotop_text', array( $this, 'footer_backtotop_filter' ), 20 );
-		add_filter( 'genesis_footer_creds_text', array( $this, 'footer_creds_filter' ), 20 );
-		add_filter( 'genesis_footer_output', array( $this, 'footer_output_filter' ), 20 );
+		add_filter( 'genesis_post_info', array( $this, 'post_info_filter' ), 19 );
+		add_filter( 'genesis_post_meta', array( $this, 'post_meta_filter' ), 19 );
+		add_filter( 'genesis_footer_backtotop_text', array( $this, 'footer_backtotop_filter' ), 19 );
+		add_filter( 'genesis_footer_creds_text', array( $this, 'footer_creds_filter' ), 19 );
+		add_filter( 'genesis_footer_output', array( $this, 'footer_output_filter' ), 19 );
 
 	}
 

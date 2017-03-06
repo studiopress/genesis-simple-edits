@@ -20,7 +20,7 @@ class Genesis_Simple_Edits_Admin extends Genesis_Admin_Form {
 
 	public function init() {
 
-		$this->admin_menu();
+		add_action( 'genesis_admin_menu', array( $this, 'admin_menu' ) );
 
 	}
 
@@ -33,7 +33,7 @@ class Genesis_Simple_Edits_Admin extends Genesis_Admin_Form {
 	 *
 	 * @see Genesis_Admin_Import_Export::actions() Handle creating, editing, and deleting sidebars.
 	 */
-	private function admin_menu() {
+	public function admin_menu() {
 
 		$page_id = 'genesis-simple-edits';
 
