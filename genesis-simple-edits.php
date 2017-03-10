@@ -75,9 +75,9 @@ class Genesis_Simple_Edits {
 	 */
 	public function init() {
 
-		add_action( 'admin_notices', array( $this, 'requirements_notice' ) );
-		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+		$this->load_plugin_textdomain();
 
+		add_action( 'admin_notices', array( $this, 'requirements_notice' ) );
 		add_action( 'genesis_setup', array( $this, 'instantiate' ) );
 
 	}
