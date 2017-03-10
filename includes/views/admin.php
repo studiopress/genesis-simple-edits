@@ -20,7 +20,7 @@
 	<tr class="post-shortcodes" style="display: none;">
 		<th scope="row"><p><span class="description"><?php _e( 'Shortcode Reference', 'genesis-simple-edits' ); ?></span></p></th>
 		<td>
-			<p><span class="description"><?php _e( 'NOTE: For a more comprehensive shortcode usage guide, <a href="http://my.studiopress.com/docs/shortcode-reference/" target="_blank">see this page</a>.', 'genesis-simple-edits' ); ?></span></p>
+			<p><span class="description"><?php printf( __( 'NOTE: For a more comprehensive shortcode usage guide, see the <a href="%s" target="_blank">post shortcode reference</a>.', 'genesis-simple-edits' ), 'http://my.studiopress.com/documentation/customization/shortcodes-reference/post-shortcode-reference/' ); ?></span></p>
 			<p>
 				<ul>
 					<li>[post_date] - <span class="description"><?php _e( 'Date the entry was published', 'genesis-simple-edits' ); ?></span></li>
@@ -71,7 +71,7 @@
 	<tr class="footer-shortcodes" style="display: none;">
 		<th scope="row"><p><span class="description"><?php _e( 'Shortcode Reference', 'genesis-simple-edits' ); ?></span></p></th>
 		<td>
-			<p><span class="description"><?php _e( 'NOTE: For a more comprehensive shortcode usage guide, <a href="http://my.studiopress.com/docs/shortcode-reference/" target="_blank">see this page</a>.', 'genesis-simple-edits' ); ?></span></p>
+			<p><span class="description"><?php printf( __( 'NOTE: For a more comprehensive shortcode usage guide, see the <a href="%s" target="_blank">footer shortcode reference</a>.', 'genesis-simple-edits' ), 'http://my.studiopress.com/documentation/customization/shortcodes-reference/footer-shortcode-reference/' ); ?></span></p>
 			<p>
 				<ul>
 					<?php if ( ! genesis_html5() ) : ?>

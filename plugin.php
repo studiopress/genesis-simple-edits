@@ -5,8 +5,8 @@ Plugin URI: http://www.studiopress.com/plugins/genesis-simple-edits
 
 Description: Genesis Simple Edits lets you edit the three most commonly modified areas in any Genesis theme: the post-info, the post-meta, and the footer area.
 
-Author: Nathan Rice
-Author URI: http://www.nathanrice.net/
+Author: StudioPress
+Author URI: http://www.studiopress.com/
 
 Version: 2.2.0
 
