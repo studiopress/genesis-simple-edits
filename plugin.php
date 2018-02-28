@@ -8,7 +8,7 @@ Description: Genesis Simple Edits lets you edit the three most commonly modified
 Author: StudioPress
 Author URI: http://www.studiopress.com/
 
-Version: 2.2.0
+Version: 2.2.1
 
 Text Domain: genesis-simple-edits
 Domain Path: /languages
