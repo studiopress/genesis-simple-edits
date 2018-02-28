@@ -40,8 +40,8 @@ class Genesis_Simple_Edits_Admin extends Genesis_Admin_Form {
 		$menu_ops = array(
 			'submenu' => array(
 				'parent_slug' => 'genesis',
-				'page_title'  => __( 'Genesis - Simple Edits', 'genesis-simple-sidebars' ),
-				'menu_title'  => __( 'Simple Edits', 'genesis-simple-sidebars' )
+				'page_title'  => __( 'Genesis - Simple Edits', 'genesis-simple-edits' ),
+				'menu_title'  => __( 'Simple Edits', 'genesis-simple-edits' )
 			)
 		);
 
