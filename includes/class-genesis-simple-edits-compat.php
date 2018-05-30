@@ -40,10 +40,28 @@ class Genesis_Simple_Edits_Compat {
 				$string = genesis_get_option( $field, $this->settings_field, false );
 				// Register string in Polylang.
 				pll_register_string( 'post_info', $string, 'genesis-simple-edits', true );
+
+				// If were on the frontend, load the translated string and populate it.
+				if ( ! is_admin() ) {
+					$string = pll__( $string );
+					$this->fields[ $field ] = $string;
+				}
 			}
 
+			// If were on the frontend, filter the genesis options for this plugin so the translated strings will be returned.
+			if ( ! is_admin() ) {
+				add_filter( 'genesis_options', array( $this, 'filter_genesis_options_polylang' ), 10, 2 );
+			}
 		}
 
+	}
+
+	public function filter_genesis_options_polylang( $options, $setting ) {
+		if ( $setting !== $this->settings_field ) {
+			return $options;
+		}
+
+		return array_replace( $options, $this->fields );
 	}
 
 }
