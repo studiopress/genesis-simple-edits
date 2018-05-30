@@ -54,6 +54,11 @@ class Genesis_Simple_Edits {
 	public $admin;
 
 	/**
+	 * Compatibility class.
+	 */
+	public $compat;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since 2.2.0
@@ -125,6 +130,10 @@ class Genesis_Simple_Edits {
 			$this->admin = new Genesis_Simple_Edits_Admin;
 			$this->admin->init();
 		}
+
+		require_once( $this->plugin_dir_path . 'includes/class-genesis-simple-edits-compat.php' );
+		$this->compat = new Genesis_Simple_Edits_Compat();
+		$this->compat->init();
 
 	}
 
