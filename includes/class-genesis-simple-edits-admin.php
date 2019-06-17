@@ -1,10 +1,21 @@
 <?php
+/**
+ * Genesis Simple Edits Admin
+ *
+ * @package genesis-simple-edits
+ */
 
+/**
+ * Admin Class
+ *
+ * @package genesis-simple-edits
+ */
 class Genesis_Simple_Edits_Admin extends Genesis_Admin_Form {
 
 	/**
 	 * Settings field.
 	 *
+	 * @var settings_field Settings Field
 	 * @since 2.1.0
 	 */
 	public $settings_field;
@@ -18,6 +29,9 @@ class Genesis_Simple_Edits_Admin extends Genesis_Admin_Form {
 
 	}
 
+	/**
+	 * Initializes Admin Menu.
+	 */
 	public function init() {
 
 		add_action( 'genesis_admin_menu', array( $this, 'admin_menu' ) );
@@ -41,11 +55,11 @@ class Genesis_Simple_Edits_Admin extends Genesis_Admin_Form {
 			'submenu' => array(
 				'parent_slug' => 'genesis',
 				'page_title'  => __( 'Genesis - Simple Edits', 'genesis-simple-edits' ),
-				'menu_title'  => __( 'Simple Edits', 'genesis-simple-edits' )
-			)
+				'menu_title'  => __( 'Simple Edits', 'genesis-simple-edits' ),
+			),
 		);
 
-		// Use Genesis default
+		// Use Genesis default.
 		$page_ops = array();
 
 		$this->create( $page_id, $menu_ops, $page_ops, $this->settings_field, $this->get_default_settings() );
@@ -73,6 +87,9 @@ class Genesis_Simple_Edits_Admin extends Genesis_Admin_Form {
 
 	}
 
+	/**
+	 * Sets up Javascript scripts.
+	 */
 	public function scripts() {
 
 		wp_enqueue_script( 'genesis-simple-edits-admin-js', Genesis_Simple_Edits()->plugin_dir_url . 'assets/js/admin.js', array( 'jquery' ), Genesis_Simple_Edits()->plugin_version, true );
@@ -83,11 +100,10 @@ class Genesis_Simple_Edits_Admin extends Genesis_Admin_Form {
 	 * Callback for displaying the Simple Sidebars admin form.
 	 *
 	 * @since 2.1.0
-	 *
 	 */
 	public function form() {
 
-		require_once( Genesis_Simple_Edits()->plugin_dir_path . 'includes/views/admin.php' );
+		require_once Genesis_Simple_Edits()->plugin_dir_path . 'includes/views/admin.php';
 
 	}
 
