@@ -1,5 +1,12 @@
 <?php
 /**
+ * Genesis Simple Edits file.
+ *
+ * @package genesis-simple-edits
+ */
+
+/**
+ * Genesis Simple Edits File
  * Plugin Name: Genesis Simple Edits
  * Plugin URI: http://www.studiopress.com/plugins/genesis-simple-edits
  * Description: Genesis Simple Edits lets you edit the three most commonly modified areas in any Genesis theme: the post-info, the post-meta, and the footer area.

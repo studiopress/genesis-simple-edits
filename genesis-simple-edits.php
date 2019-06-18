@@ -158,7 +158,7 @@ class Genesis_Simple_Edits {
  *
  * @since 2.2.0
  */
-function Genesis_Simple_Edits() {
+function genesis_simple_edits() {
 
 	static $object;
 
