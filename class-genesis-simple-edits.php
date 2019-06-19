@@ -1,9 +1,11 @@
 <?php
 /**
- * Genesis Simple Edits
+ * The main class that handles the entire output, content filters, etc., for this plugin.
  *
  * @package genesis-simple-edits
+ * @since 1.0
  */
+
 
 /**
  * Core Class
