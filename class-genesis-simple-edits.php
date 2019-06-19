@@ -6,7 +6,6 @@
  * @since 1.0
  */
 
-
 /**
  * Core Class
  *
