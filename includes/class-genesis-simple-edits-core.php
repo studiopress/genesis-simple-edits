@@ -28,7 +28,7 @@ class Genesis_Simple_Edits_Core {
 	}
 
 	/**
-	 * Init.
+	 * Init, sets up filters.
 	 */
 	public function init() {
 

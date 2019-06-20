@@ -7,7 +7,7 @@
  */
 
 /**
- * Core Class
+ * Main Class
  *
  * @since 1.0
  */
