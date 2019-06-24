@@ -28,7 +28,17 @@
 	<tr class="post-shortcodes" style="display: none;">
 		<th scope="row"><p><span class="description"><?php esc_html_e( 'Shortcode Reference', 'genesis-simple-edits' ); ?></span></p></th>
 		<td>
-			<p><span class="description"><?php // Translators: The string is a URL to a usage guide. ?><?php printf( esc_attr( __( 'NOTE: For a more comprehensive shortcode usage guide, see the <a href="%s" target="_blank">post shortcode reference</a>.', 'genesis-simple-edits' ) ), 'http://my.studiopress.com/documentation/customization/shortcodes-reference/post-shortcode-reference/' ); ?></span></p>
+			<p><span class="description">
+				<?php
+				$allowed_html = array(
+					'a' => array(
+						'href'   => array(),
+						'target' => array(),
+					),
+				);
+				?>
+				<?php // Translators: The string is a URL to a usage guide. ?>
+				<?php printf( wp_kses( __( 'NOTE: For a more comprehensive shortcode usage guide, see the <a href="%s" target="_blank">post shortcode reference</a>.', 'genesis-simple-edits' ), $allowed_html ), 'http://my.studiopress.com/documentation/customization/shortcodes-reference/post-shortcode-reference/' ); ?></span></p>
 			<p>
 				<ul>
 					<li>[post_date] - <span class="description"><?php esc_html_e( 'Date the entry was published', 'genesis-simple-edits' ); ?></span></li>

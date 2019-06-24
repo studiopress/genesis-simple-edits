@@ -24,3 +24,5 @@
  */
 
 require_once plugin_dir_path( __FILE__ ) . 'genesis-simple-edits.php';
+
+define( 'GENESIS_SIMPLE_EDITS_VERSION', '5.2.1' );

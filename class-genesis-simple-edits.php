@@ -14,13 +14,6 @@
 class Genesis_Simple_Edits {
 
 	/**
-	 * Plugin version
-	 *
-	 * @var $plugin_version Plugin Version
-	 */
-	public $plugin_version = '2.2.1';
-
-	/**
 	 * Minimum WordPress version.
 	 *
 	 * @var $min_wp_version Minimum WordPress version
