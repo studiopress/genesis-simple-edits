@@ -1,10 +1,4 @@
-<?php
-/**
- * Genesis Simple Edits file.
- *
- * @package genesis-simple-edits
- */
-
+<?php //phpcs:ignore
 /**
  * Genesis Simple Edits File
  * Plugin Name: Genesis Simple Edits
@@ -24,5 +18,3 @@
  */
 
 require_once plugin_dir_path( __FILE__ ) . 'genesis-simple-edits.php';
-
-define( 'GENESIS_SIMPLE_EDITS_VERSION', '5.2.1' );

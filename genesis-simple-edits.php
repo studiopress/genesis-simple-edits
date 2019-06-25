@@ -7,8 +7,9 @@
 
 define( 'GENESIS_SIMPLE_EDITS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GENESIS_SIMPLE_EDITS_URL', plugins_url( '', __FILE__ ) );
+define( 'GENESIS_SIMPLE_EDITS_VERSION', '5.2.1' );
 
-require_once GENESIS_SIMPLE_EDITS_DIR . '/class-genesis-simple-edits.php';
+require_once GENESIS_SIMPLE_EDITS_DIR . '/includes/class-genesis-simple-edits.php';
 
 /**
  * Helper function to retrieve the static object without using globals.
