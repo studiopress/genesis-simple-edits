@@ -133,12 +133,12 @@ class Genesis_Simple_Edits {
 	 */
 	public function instantiate() {
 
-		require_once $this->plugin_dir_path . 'includes/class-genesis-simple-edits-core.php';
+		require_once $this->plugin_dir_path . 'class-genesis-simple-edits-core.php';
 		$this->core = new Genesis_Simple_Edits_Core();
 		$this->core->init();
 
 		if ( is_admin() ) {
-			require_once $this->plugin_dir_path . 'includes/class-genesis-simple-edits-admin.php';
+			require_once $this->plugin_dir_path . 'class-genesis-simple-edits-admin.php';
 			$this->admin = new Genesis_Simple_Edits_Admin();
 			$this->admin->init();
 		}
