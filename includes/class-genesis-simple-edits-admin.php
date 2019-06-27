@@ -92,7 +92,7 @@ class Genesis_Simple_Edits_Admin extends Genesis_Admin_Form {
 	 */
 	public function scripts() {
 
-		wp_enqueue_script( 'genesis-simple-edits-admin-js', Genesis_Simple_Edits()->plugin_dir_url . 'assets/js/admin.js', array( 'jquery' ), GENESIS_SIMPLE_EDITS_VERSION, true );
+		wp_enqueue_script( 'genesis-simple-edits-admin-js', Genesis_Simple_Edits()->plugin_dir_url . '/assets/js/admin.js', array( 'jquery' ), GENESIS_SIMPLE_EDITS_VERSION, true );
 
 	}
 
