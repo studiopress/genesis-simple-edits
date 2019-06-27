@@ -103,7 +103,7 @@ class Genesis_Simple_Edits_Admin extends Genesis_Admin_Form {
 	 */
 	public function form() {
 
-		require_once Genesis_Simple_Edits()->plugin_dir_path . 'views/admin.php';
+		require_once Genesis_Simple_Edits()->plugin_dir_path . 'includes/views/admin.php';
 
 	}
 

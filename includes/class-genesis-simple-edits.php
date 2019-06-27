@@ -76,8 +76,8 @@ class Genesis_Simple_Edits {
 	 */
 	public function __construct() {
 
-		$this->plugin_dir_url  = plugin_dir_url( __FILE__ );
-		$this->plugin_dir_path = plugin_dir_path( __FILE__ );
+		$this->plugin_dir_url  = GENESIS_SIMPLE_EDITS_URL;
+		$this->plugin_dir_path = GENESIS_SIMPLE_EDITS_DIR;
 
 		// For backward compatibility.
 		define( 'GSE_SETTINGS_FIELD', $this->settings_field );
@@ -133,12 +133,12 @@ class Genesis_Simple_Edits {
 	 */
 	public function instantiate() {
 
-		require_once $this->plugin_dir_path . 'class-genesis-simple-edits-core.php';
+		require_once $this->plugin_dir_path . 'includes/class-genesis-simple-edits-core.php';
 		$this->core = new Genesis_Simple_Edits_Core();
 		$this->core->init();
 
 		if ( is_admin() ) {
-			require_once $this->plugin_dir_path . 'class-genesis-simple-edits-admin.php';
+			require_once $this->plugin_dir_path . 'includes/class-genesis-simple-edits-admin.php';
 			$this->admin = new Genesis_Simple_Edits_Admin();
 			$this->admin->init();
 		}
