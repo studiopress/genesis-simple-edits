@@ -1,11 +1,20 @@
 <?php
+/**
+ * Genesis Simple Edits Core
+ *
+ * @package genesis-simple-edits
+ */
 
+/**
+ * Core Class
+ */
 class Genesis_Simple_Edits_Core {
 
 	/**
 	 * Settings field.
 	 *
 	 * @since 2.1.0
+	 * @var $settings_field Settings Field
 	 */
 	private $settings_field;
 
@@ -18,6 +27,9 @@ class Genesis_Simple_Edits_Core {
 
 	}
 
+	/**
+	 * Init, sets up filters.
+	 */
 	public function init() {
 
 		add_filter( 'genesis_post_info', array( $this, 'post_info_filter' ), 19 );
@@ -28,32 +40,56 @@ class Genesis_Simple_Edits_Core {
 
 	}
 
-
-	function post_info_filter( $output ) {
+	/**
+	 * Post Info Filter
+	 *
+	 * @param Output $output Output.
+	 */
+	public function post_info_filter( $output ) {
 
 		return genesis_get_option( 'post_info', $this->settings_field );
 
 	}
 
-	function post_meta_filter( $output ) {
+	/**
+	 * Post Meta Filter
+	 *
+	 * @param Output $output Output.
+	 */
+	public function post_meta_filter( $output ) {
 
 		return genesis_get_option( 'post_meta', $this->settings_field );
 
 	}
 
-	function footer_backtotop_filter( $output ) {
+	/**
+	 * Footer Back To Top Filter
+	 *
+	 * @param Output $output Output.
+	 */
+	public function footer_backtotop_filter( $output ) {
 
 		return genesis_get_option( 'footer_backtotop_text', $this->settings_field );
 
 	}
 
-	function footer_creds_filter( $output ) {
+	/**
+	 * Footer Creds Filter
+	 *
+	 * @param Output $output Output.
+	 */
+	public function footer_creds_filter( $output ) {
 
 		return genesis_get_option( 'footer_creds_text', $this->settings_field );
 
 	}
 
-	function footer_output_filter( $output ) {
+	/**
+	 * Footer Output Filter
+	 *
+	 * @param Output $output Output.
+	 */
+	public function footer_output_filter( $output ) {
 
 		if ( genesis_get_option( 'footer_output_on', $this->settings_field ) ) {
 			return genesis_get_option( 'footer_output', $this->settings_field );
