@@ -34,7 +34,7 @@ You must have Genesis (2.4.2+) or a Genesis child theme installed and activated 
 == Changelog ==
 
 = 2.2.2 =
-* Add compatibility with WordPress Coding Standards
+* Add compatibility with WordPress Coding Standards.
 
 = 2.2.1 =
 * Genesis 2.6+ compatibility (prevents white screen).
@@ -44,22 +44,22 @@ You must have Genesis (2.4.2+) or a Genesis child theme installed and activated 
 * Update Author and Author URI.
 
 = 2.1.3 =
-* add textdomain loader
-* add plugin header i18n
+* add textdomain loader.
+* add plugin header i18n.
 
 = 2.1.2 =
-* Generate POT
+* Generate POT.
 
 = 2.1.1 =
-* Prevent fatal error when Genesis 2.1 not active
+* Prevent fatal error when Genesis 2.1 not active.
 
 = 2.1.0 =
-* Genesis 2.1+ compatibility
+* Genesis 2.1+ compatibility.
 
 = 1.7.1 =
-* Increased installation requirement to Genesis 1.7.1
-* Removed PHP4 constructor
-* Whitespace, standards, and documentation
+* Increased installation requirement to Genesis 1.7.1.
+* Removed PHP4 constructor.
+* Whitespace, standards, and documentation.
 
 = 1.0 =
-* Initial Release
+* Initial Release.
