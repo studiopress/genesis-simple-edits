@@ -25,7 +25,7 @@ class Genesis_Simple_Edits {
 	 *
 	 * @var $min_genesis_version Minimum Genesis version
 	 */
-	public $min_genesis_version = '2.4.2';
+	public $min_genesis_version = '3.1.0';
 
 	/**
 	 * The plugin textdomain, for translations.

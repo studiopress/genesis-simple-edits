@@ -57,22 +57,6 @@
 		</td>
 	</tr>
 
-	<?php if ( ! genesis_html5() ) : ?>
-	<tr>
-		<th scope="row"><p><label for="<?php $this->field_id( 'footer_backtotop_text' ); ?>"><b><?php esc_html_e( 'Footer "Back to Top" Link', 'genesis-simple-edits' ); ?></b></label></p></th>
-		<td>
-			<p><input type="text" name="<?php $this->field_name( 'footer_backtotop_text' ); ?>" id="<?php $this->field_id( 'footer_backtotop_text' ); ?>" value="<?php echo esc_attr( $this->get_field_value( 'footer_backtotop_text' ) ); ?>" size="125" /></p>
-		</td>
-	</tr>
-	<?php endif; ?>
-
-	<tr>
-		<th scope="row"><p><label for="<?php $this->field_id( 'footer_creds_text' ); ?>"><b><?php esc_html_e( 'Footer Credits Text', 'genesis-simple-edits' ); ?></b></label></p></th>
-		<td>
-			<p><input type="text" name="<?php $this->field_name( 'footer_creds_text' ); ?>" id="<?php $this->field_name( 'footer_creds_text' ); ?>" value="<?php echo esc_attr( $this->get_field_value( 'footer_creds_text' ) ); ?>" size="125" /></p>
-		</td>
-	</tr>
-
 	<tr>
 		<th scope="row"><p><b><?php esc_html_e( 'Footer Output', 'genesis-simple-edits' ); ?></b></p></th>
 		<td>

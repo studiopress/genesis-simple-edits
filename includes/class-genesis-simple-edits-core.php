@@ -34,8 +34,6 @@ class Genesis_Simple_Edits_Core {
 
 		add_filter( 'genesis_post_info', array( $this, 'post_info_filter' ), 19 );
 		add_filter( 'genesis_post_meta', array( $this, 'post_meta_filter' ), 19 );
-		add_filter( 'genesis_footer_backtotop_text', array( $this, 'footer_backtotop_filter' ), 19 );
-		add_filter( 'genesis_footer_creds_text', array( $this, 'footer_creds_filter' ), 19 );
 		add_filter( 'genesis_footer_output', array( $this, 'footer_output_filter' ), 19 );
 
 	}
@@ -59,28 +57,6 @@ class Genesis_Simple_Edits_Core {
 	public function post_meta_filter( $output ) {
 
 		return genesis_get_option( 'post_meta', $this->settings_field );
-
-	}
-
-	/**
-	 * Footer Back To Top Filter
-	 *
-	 * @param Output $output Output.
-	 */
-	public function footer_backtotop_filter( $output ) {
-
-		return genesis_get_option( 'footer_backtotop_text', $this->settings_field );
-
-	}
-
-	/**
-	 * Footer Creds Filter
-	 *
-	 * @param Output $output Output.
-	 */
-	public function footer_creds_filter( $output ) {
-
-		return genesis_get_option( 'footer_creds_text', $this->settings_field );
 
 	}
 
