@@ -18,7 +18,7 @@ class Genesis_Simple_Edits {
 	 *
 	 * @var $min_wp_version Minimum WordPress version
 	 */
-	public $min_wp_version = '4.7.2';
+	public $min_wp_version = '5.0.0';
 
 	/**
 	 * Minimum Genesis version.
