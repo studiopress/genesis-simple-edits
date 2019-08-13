@@ -86,9 +86,6 @@
 				<?php printf( wp_kses( __( 'NOTE: For a more comprehensive shortcode usage guide, see the <a href="%s" target="_blank">footer shortcode reference</a>.', 'genesis-simple-edits' ), $allowed_html ), 'http://my.studiopress.com/documentation/customization/shortcodes-reference/footer-shortcode-reference/' ); ?></span></p>
 			<p>
 				<ul>
-					<?php if ( ! genesis_html5() ) : ?>
-					<li>[footer_backtotop] - <span class="description"><?php esc_html_e( 'The "Back to Top" Link', 'genesis-simple-edits' ); ?></span></li>
-					<?php endif; ?>
 					<li>[footer_copyright] - <span class="description"><?php esc_html_e( 'The Copyright notice', 'genesis-simple-edits' ); ?></span></li>
 					<li>[footer_childtheme_link] - <span class="description"><?php esc_html_e( 'The Child Theme Link', 'genesis-simple-edits' ); ?></span></li>
 					<li>[footer_genesis_link] - <span class="description"><?php esc_html_e( 'The Genesis Link', 'genesis-simple-edits' ); ?></span></li>
