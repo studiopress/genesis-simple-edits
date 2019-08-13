@@ -111,7 +111,17 @@ class Genesis_Simple_Edits {
 
 			// Translators: String 1 is the version of WordPress required, String 2 is the version of Genesis required. String 3 is an expected action to take, String 4 is the URL of the Genesis Plugin.
 			$message = sprintf( __( 'Genesis Simple Edits requires WordPress %1$s and Genesis %2$s, or greater. Please %3$s the latest version of <a href="%4$s" target="_blank">Genesis</a> to use this plugin.', 'genesis-simple-edits' ), $this->min_wp_version, $this->min_genesis_version, $action, 'http://my.studiopress.com/?download_id=91046d629e74d525b3f2978e404e7ffa' );
-			echo '<div class="notice notice-warning"><p>' . esc_html( $message ) . '</p></div>';
+			echo '<div class="notice notice-warning"><p>';
+			echo wp_kses(
+				$message,
+				array(
+					'a' => array(
+						'href'   => array(),
+						'target' => array(),
+					),
+				)
+			);
+			echo '</p></div>';
 
 		}
 
