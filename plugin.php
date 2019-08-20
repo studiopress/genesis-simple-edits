@@ -12,6 +12,9 @@
  * Requires at least: 5.0.0
  * Requires PHP: 5.6
  *
+ * Requires at least: 5.0.0
+ * Requires PHP: 5.6
+ *
  * Text Domain: genesis-simple-edits
  * Domain Path: /languages
  * License: GNU General Public License v2.0 (or later)
