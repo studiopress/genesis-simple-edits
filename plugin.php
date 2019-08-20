@@ -7,7 +7,7 @@
  * Author: StudioPress
  * Author URI: https://www.studiopress.com/
  *
- * Version: 2.2.2
+ * Version: 2.3.0
  *
  * Requires at least: 5.0.0
  * Requires PHP: 5.6
