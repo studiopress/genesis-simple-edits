@@ -3,7 +3,7 @@ Contributors: nathanrice, studiopress, wpmuguru
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5553118
 Tags: shortcodes, genesis, genesiswp, studiopress
 Requires at least: 5.0.0
-Tested up to: 5.2.2
+Tested up to: 5.4
 Stable tag: 2.3.0
 
 This plugin lets you edit the three most commonly modified areas in any Genesis theme: the post-info (byline), the post-meta, and the footer area.
