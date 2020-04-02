@@ -11,14 +11,14 @@
 	<tr>
 		<th scope="row"><p><label for="<?php $this->field_id( 'post_info' ); ?>"><b><?php esc_html_e( 'Entry Meta (above content)', 'genesis-simple-edits' ); ?></b></label></p></th>
 		<td>
-			<p><input type="text" name="<?php $this->field_name( 'post_info' ); ?>" id="<?php $this->field_id( 'post_info' ); ?>" value="<?php echo esc_attr( $this->get_field_value( 'post_info' ) ); ?>" size="125" /></p>
+			<p><input type="text" class="regular-text" name="<?php $this->field_name( 'post_info' ); ?>" id="<?php $this->field_id( 'post_info' ); ?>" value="<?php echo esc_attr( $this->get_field_value( 'post_info' ) ); ?>" /></p>
 		</td>
 	</tr>
 
 	<tr>
 		<th scope="row"><p><label for="<?php $this->field_id( 'post_meta' ); ?>"><b><?php esc_html_e( 'Entry Meta (below content)', 'genesis-simple-edits' ); ?></b></label></p></th>
 		<td>
-			<p><input type="text" name="<?php $this->field_name( 'post_meta' ); ?>" id="<?php $this->field_id( 'post_meta' ); ?>" value="<?php echo esc_attr( $this->get_field_value( 'post_meta' ) ); ?>" size="125" /></p>
+			<p><input type="text"  class="regular-text" name="<?php $this->field_name( 'post_meta' ); ?>" id="<?php $this->field_id( 'post_meta' ); ?>" value="<?php echo esc_attr( $this->get_field_value( 'post_meta' ) ); ?>" /></p>
 
 			<p><small><a class="post-shortcodes-toggle" href="#"><?php esc_html_e( 'Show available entry meta shortcodes', 'genesis-simple-edits' ); ?></a></small></p>
 
