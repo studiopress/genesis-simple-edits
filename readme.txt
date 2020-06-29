@@ -13,6 +13,9 @@ This plugin is now deprecated and will no longer receive feature updates. The re
 - Genesis → Theme Settings → Singular Content
 - Genesis → Theme Settings → Footer
 
+For more information about how to use these features in Genesis Framework, see this article:
+https://my.studiopress.com/documentation/usage/genesis-features/edit-the-entry-meta-and-footer-text-with-genesis/
+
 == Description ==
 
 This plugin creates a new Genesis settings page that allows you to modify the post-info (byline), post-meta, and footer area on any Genesis theme. Using text, shortcodes, and HTML in the textboxes provided in the admin screen, these three commonly modified areas are easily editable, without having to learn PHP or write functions, filters, or mess with hooks.
